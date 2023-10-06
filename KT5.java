@@ -1,28 +1,29 @@
 import java.util.Scanner;
 
 public class KT5 {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Sisesta tekst: ");
-        String tekst = scanner.nextLine();
+        System.out.print("Palun sisesta tekst: ");
+        String inputText = scanner.nextLine();
 
-        if (onPalindroom(tekst)) {
-            System.out.println(tekst + " on palindroom.");
+        if (isPalindrome(inputText)) {
+            System.out.println(inputText + " on palindroom.");
         } else {
-            System.out.println(tekst + " ei ole palindroom.");
+            System.out.println(inputText + " ei ole palindroom.");
         }
 
         scanner.close();
     }
 
-    public static boolean onPalindroom(String tekst) {
-        
-        tekst = tekst.replaceAll("[^a-zA-Z]", "").toLowerCase();
+    public static boolean isPalindrome(String text) {
+        // Eemalda kõik mitte-tähtedevahelised sümbolid ja teisenda tekst väiketähtedeks
+        text = text.replaceAll("[^a-zA-Z]", "").toLowerCase();
 
-        int pikkus = tekst.length();
-        for (int i = 0; i < pikkus / 2; i++) {
-            if (tekst.charAt(i) != tekst.charAt(pikkus - 1 - i)) {
+        int length = text.length();
+        for (int i = 0; i < length / 2; i++) {
+            if (text.charAt(i) != text.charAt(length - 1 - i)) {
                 return false;
             }
         }
