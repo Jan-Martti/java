@@ -1,4 +1,4 @@
- public class java_harjutsu2_jan {
+ public class H2 {
     public static void main(String[] args) {
         int a = 10;
         float b = 39.370f;
