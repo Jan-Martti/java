@@ -1,4 +1,4 @@
-public class java_harjutused_jan {
+public class H1 {
 1ˇ1     public static void main(String[] args) {
     
     String eesnimi = new String();
