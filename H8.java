@@ -3,41 +3,89 @@
 import java.util.Scanner;
 
 public class H8 {
-    // Meetod kuupühimiku ruumala arvutamiseks
-    public static double kuupuhikuRuumala(double külg) {
-        return külg * külg * külg;
-    }
+	public static void main(String[] args) {
 
-    // Meetod risttahuka ruumala arvutamiseks
-    public static double risttahukaRuumala(double pikkus, double laius, double kõrgus) {
-        return pikkus * laius * kõrgus;
-    }
+		String laius = "";
+		String alus = "";
+		String korgus = "";
+		String pindala = "";
+		Scanner scanner = new Scanner(System.in);
+		System.out.print(
+				"Rööpküliku pindala (1) \nRistküliku pindala (2) \nKolmnurga pindala (3) \nRööptahukas ruumala (4) \n Risttahuka ruumala (5) \nKuubi ruumala (6)\nVali tegevus: ");
+		String valik = scanner.next();
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Tere tulemast Ruumalade kalkulaatorisse!");
+		if (valik.equals("5")) {
+			System.out.print("Sisesta laius: ");
+			laius = scanner.next();
+			System.out.print("Sisesta alus: ");
+			alus = scanner.next();
+			System.out.print("Sisesta kõrgus: ");
+			korgus = scanner.next();
 
-        System.out.print("Kas soovite arvutada kuupühimiku (K) või risttahuka (R) ruumala? ");
-        String valik = scanner.next();
+		} else if (valik.equals("6")) {
+			System.out.print("Sisesta alus: ");
+			alus = scanner.next();
 
-        if (valik.equalsIgnoreCase("K")) {
-            System.out.print("Sisestage kuupühimiku külje pikkus: ");
-            double külg = scanner.nextDouble();
-            double ruumala = kuupuhikuRuumala(külg);
-            System.out.println("Kuupühimiku ruumala on " + ruumala);
-        } else if (valik.equalsIgnoreCase("R")) {
-            System.out.print("Sisestage risttahuka pikkus: ");
-            double pikkus = scanner.nextDouble();
-            System.out.print("Sisestage risttahuka laius: ");
-            double laius = scanner.nextDouble();
-            System.out.print("Sisestage risttahuka kõrgus: ");
-            double kõrgus = scanner.nextDouble();
-            double ruumala = risttahukaRuumala(pikkus, laius, kõrgus);
-            System.out.println("Risttahuka ruumala on " + ruumala);
-        } else {
-            System.out.println("Vigane valik! Palun valige K või R.");
-        }
+		} else if (valik.equals("1")) {
+			System.out.print("Sisesta kõrgus: ");
+			korgus = scanner.next();
+			System.out.print("Sisesta alus: ");
+			alus = scanner.next();
 
-        scanner.close();
-    }
+		} else if (valik.equals("4")) {
+			System.out.print("Sisesta põhja pindala: ");
+			pindala = scanner.next();
+			System.out.print("Sisesta kõrgus: ");
+			korgus = scanner.next();
+
+		} else if (valik.equals("2")) {
+			System.out.print("Sisesta kõrgus: ");
+			korgus = scanner.next();
+			System.out.print("Sisesta alus: ");
+			alus = scanner.next();
+
+		} else if (valik.equals("3")) {
+			System.out.print("Sisesta kõrgus: ");
+			korgus = scanner.next();
+			System.out.print("Sisesta alus: ");
+			alus = scanner.next();
+		}
+
+		
+
+		double s;
+		switch (Integer.parseInt(valik)) {
+			case 1:
+				s = Pindalad.roopkylik(alus, korgus);
+				System.out.printf("Rööpküliku pindala on %.2f ", s);
+				break;
+			case 2:
+				s = Pindalad.ristkylik(alus, korgus);
+				System.out.printf("Ristküliku pindala on %.2f ", s);
+				break;
+			case 3:
+				s = Pindalad.kolmnurk(alus, korgus);
+				System.out.printf("Kolmnurga pindala on %.2f ", s);
+				break;
+			case 4:
+				s = ruumalad.roopkylk(pindala, korgus);
+				System.out.printf("Rööptahuka ruumala on %.2f m kuubis", s);
+				break;
+			case 5:
+				s = ruumalad.risttahukas(alus, korgus, laius);
+				System.out.printf("Risttahuka ruumala on %.2f m kuubis", s);
+				break;
+			case 6:
+				s = ruumalad.kuup(alus);
+				System.out.printf("Kuubi ruumala on %.2f  m kuubis ", s);
+				break;
+
+			default:
+				System.out.print("Valikust arusaamine ebaõnnestus!");
+				break;
+		}
+
+		scanner.close();
+	}
+
 }
