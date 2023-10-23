@@ -3,12 +3,21 @@
 
 public class KT2 {
     public static void main(String[] args) {
-    for (int i = 1; i <= 66; i++) {
-    if (i % 3 == 0) { 
-    System.out.print(i + ", "); // Väljastab praeguse i väärtuse koos koma ja tühikuga
-    
+        try {
+            // Kutsutakse alamprogrammi, et prindiks arvud, mis on jaguvad 3-ga ja käidelda erandeid
+            printNumbersDivisibleByThree();
+        } catch (Exception e) { // Käideldakse erandeid, mis võivad tekkida
+            System.out.println("Erind tekkis: " + e); // Prinditakse erandi teade koos üksikasjadega
+        }
+    }
+
+    // Alamprogramm, mis prindib arvud , mis jaguvad 3-ga
+    public static void printNumbersDivisibleByThree() {
+        for (int i = 1; i <= 66; i++) {
+            if (i % 3 == 0) { // Kontrollitakse, kas arv on jaguv 3-ga
+                System.out.print(i + ", "); // Prinditakse arv, kui see on jaguv 3-ga
             }
         }
-    System.out.println();
+        System.out.println(); // Liigutakse uuele reale
     }
 }
